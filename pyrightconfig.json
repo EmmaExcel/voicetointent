@@ -1,0 +1,9 @@
+{
+  "pythonPath": "/Users/excelemma-okerhe/miniforge3/bin/python",
+  "pythonVersion": "3.13",
+  "venvPath": "/Users/excelemma-okerhe/miniforge3",
+  "extraPaths": [
+    "/Users/excelemma-okerhe/miniforge3/lib/python3.13/site-packages",
+    "."
+  ]
+}

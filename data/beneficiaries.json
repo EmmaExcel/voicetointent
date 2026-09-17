@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ben_001",
+    "full_name": "Jane Doe",
+    "account_number": "0123456789",
+    "bank_name": "Guaranty Trust Bank (GTB)",
+    "aliases": ["mom", "mother", "mummy", "mama"]
+  },
+  {
+    "id": "ben_002",
+    "full_name": "John Smith",
+    "account_number": "1122334455",
+    "bank_name": "Access Bank",
+    "aliases": ["john", "johnny", "brother"]
+  },
+  {
+    "id": "ben_003",
+    "full_name": "Ruona Okerhe",
+    "account_number": "9988776655",
+    "bank_name": "Zenith Bank",
+    "aliases": ["ruona", "rona", "sister"]
+  },
+  {
+    "id": "ben_004",
+    "full_name": "Mr. Adebayo",
+    "account_number": "5566778899",
+    "bank_name": "First Bank",
+    "aliases": ["landlord", "adebayo", "bayo"]
+  },
+  {
+    "id": "ben_005",
+    "full_name": "James O.",
+    "account_number": "3344556677",
+    "bank_name": "UBA",
+    "aliases": ["james", "jim", "gyms"]
+  },
+  {
+    "id": "ben_006",
+    "full_name": "MTN Mobile",
+    "account_number": "08030000000",
+    "bank_name": "MTN",
+    "aliases": ["my phone", "myself", "airtime"]
+  },
+  {
+    "id": "ben_007",
+    "full_name": "Airtel Mobile",
+    "account_number": "08020000000",
+    "bank_name": "Airtel",
+    "aliases": ["airtel", "wife's phone"]
+  },
+  {
+    "id": "ben_008",
+    "full_name": "Ikeja Electric",
+    "account_number": "0100200300",
+    "bank_name": "Ikeja Electric",
+    "aliases": ["nepa", "light", "electricity", "power"]
+  },
+  {
+    "id": "ben_009",
+    "full_name": "DStv Subscription",
+    "account_number": "11223344",
+    "bank_name": "Multichoice",
+    "aliases": ["dstv", "cable", "tv"]
+  },
+  {
+    "id": "ben_010",
+    "full_name": "David",
+    "account_number": "1002003004",
+    "bank_name": "Kuda Bank",
+    "aliases": ["david", "dave", "friend"]
+  }
+]
