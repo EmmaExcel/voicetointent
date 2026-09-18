@@ -1,0 +1,202 @@
+:root {
+    --bg-main: #111111;
+    --bg-panel: #1a1a1a;
+    --bg-button: #2a2a2a;
+    --bg-button-hover: #333333;
+    --text-primary: #ededed;
+    --text-secondary: #a0a0a0;
+    --border-color: #333333;
+    --accent-recording: #ff453a;
+    --accent-success: #32d74b;
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.recorder-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.record-btn {
+    background-color: var(--bg-button);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.record-btn:hover {
+    background-color: var(--bg-button-hover);
+}
+
+.record-btn:active, .record-btn.recording {
+    background-color: var(--bg-main);
+    border-color: var(--accent-recording);
+    box-shadow: 0 0 15px rgba(255, 69, 58, 0.2);
+    transform: scale(0.98);
+}
+
+.record-btn.recording .btn-icon {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.status-indicator {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.status-indicator.error {
+    color: var(--accent-recording);
+}
+
+.results-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+    .results-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.panel {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.panel h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.content-box {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    min-height: 120px;
+}
+
+.text-content {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.code-content {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.confidence-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+.confidence-fill {
+    height: 4px;
+    background-color: var(--border-color);
+    border-radius: 2px;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.confidence-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--confidence-width, 0%);
+    background-color: var(--text-secondary);
+    transition: width 0.3s ease;
+}
+
+.confidence-fill.high::after {
+    background-color: var(--accent-success);
+}
+
+.confidence-text {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+}

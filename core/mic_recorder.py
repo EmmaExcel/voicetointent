@@ -52,7 +52,7 @@ def record_until_silence(
     print("[mic] listening... (speak now, Ctrl+C to cancel)")
 
     if show_levels:
-        print("[mic] live levels (0.1+ = speech):")
+        print(f"[mic] live levels ({silence_rms}+ = speech):")
 
     try:
         with sd.InputStream(

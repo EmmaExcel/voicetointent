@@ -16,10 +16,10 @@ class WhisperConfig:
 
 class MicConfig:
     silence_threshold_seconds: float = float(
-        os.getenv("MIC_SILENCE_THRESHOLD_SECONDS", "1.5")
+        os.getenv("MIC_SILENCE_THRESHOLD_SECONDS", "3.0")
     )
     silence_rms_threshold: float = float(
-        os.getenv("MIC_SILENCE_RMS_THRESHOLD", "0.02")
+        os.getenv("MIC_SILENCE_RMS_THRESHOLD", "0.005")
     )
     sample_rate: int = int(os.getenv("MIC_SAMPLE_RATE", "16000"))
 

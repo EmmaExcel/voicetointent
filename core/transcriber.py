@@ -32,7 +32,7 @@ def _average_confidence(segments: list) -> float:
 
 def transcribe_file(audio_path: str | Path) -> tuple[str, float]:
     model = _load_model()
-    segments, _info = model.transcribe(str(audio_path), beam_size=5)
+    segments, _info = model.transcribe(str(audio_path), beam_size=5, vad_filter=True)
     segments = list(segments)
     transcript = " ".join(s.text.strip() for s in segments).strip()
     confidence = _average_confidence(segments)
@@ -42,7 +42,7 @@ def transcribe_file(audio_path: str | Path) -> tuple[str, float]:
 def transcribe_bytes(audio_bytes: bytes) -> tuple[str, float]:
     model = _load_model()
     audio_buffer = io.BytesIO(audio_bytes)
-    segments, _info = model.transcribe(audio_buffer, beam_size=5)
+    segments, _info = model.transcribe(audio_buffer, beam_size=5, vad_filter=True)
     segments = list(segments)
     transcript = " ".join(s.text.strip() for s in segments).strip()
     confidence = _average_confidence(segments)

@@ -7,6 +7,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from config import get_llm_provider
@@ -46,6 +47,7 @@ app.add_middleware(
 )
 
 
+
 class TranscriptResponse(BaseModel):
     transcript: str
     confidence: float
@@ -83,7 +85,7 @@ async def _read_audio(audio: UploadFile) -> bytes:
     return data
 
 
-@app.get("/", tags=["Health"])
+@app.get("/health", tags=["Health"])
 def root():
     return {"status": "ok", "service": "voice-to-intent"}
 
@@ -231,3 +233,5 @@ async def ws_process(websocket: WebSocket, schema_name: str = "financial"):
         await websocket.send_text(json.dumps({"type": "error", "message": str(exc)}))
     finally:
         await websocket.close()
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
